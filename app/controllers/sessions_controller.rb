@@ -31,4 +31,7 @@ class SessionsController < ApplicationController
     session.delete(:user_id)
     @current_user = nil
   end
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
 end
